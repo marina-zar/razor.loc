@@ -1,0 +1,167 @@
+header {
+  font-size: 14px;
+}
+
+.header__top {
+  border-bottom: 1px solid $lightGray;
+
+  .row {
+    padding: 17px 0 23px;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .header__subtitle {
+      p {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+      }
+    }
+
+    .header__phone {
+      a {
+        font-size: 20px;
+        display: block;
+        letter-spacing: -1px;
+        line-height: 1;
+      }
+
+      span {
+        font-size: 12px;
+      }
+    }
+
+    .logo-wrap {
+      text-align: center;
+    }
+
+    .header__loc {
+      background: url("../img/location.png");
+    }
+
+  }
+}
+
+
+.navbar {
+  background-color: $darkdarkGray;
+  padding: 0;
+}
+
+.navbar-expand-md {
+  .navbar-brand {
+    margin: 8px 0;
+    //@media (max-width: 767px) {
+    //  order: 1;
+    //}
+  }
+
+  .navbar-toggler {
+    margin-right: 20px;
+    margin-left: auto;
+    //@media (max-width: 767px) {
+    //  order: 2;
+    //}
+  }
+
+  .navbar-collapse {
+    @media (max-width: 767px) {
+      order: 4;
+    }
+  }
+
+  .navbar-nav {
+    margin: 0;
+    @media (min-width: 767px) {
+      margin: 0 auto 0 auto;
+    }
+
+    .nav-link {
+      padding: 20px;
+      color: $lightGray;
+
+      &.active {
+        @media (min-width: 768px) {
+          background-color: $yellow;
+          color: $darkdarkGray;
+        }
+      }
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+.navbar-rightbox {
+  @media (max-width: 767px) {
+    order: 3;
+  }
+
+  .navbar-user {
+    cursor: pointer;
+    color: white;
+    margin-right: 20px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .navbar-search {
+    cursor: pointer;
+    background: transparent;
+    border: 0 transparent;
+    padding: 0;
+    margin-right: 20px;
+
+    svg.icon-search {
+      color: white;
+      //font-size: 18px;
+      transform: scale(-1, 1);
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  .navbar-cart {
+    transform: scale(1.15);
+    position: relative;
+
+    &:hover {
+      color: $primary;
+    }
+
+    .navbar-cart__icon {
+      position: absolute;
+      top: -5px;
+      right: -10px;
+      display: block;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: $primary;
+      font-size: 10px;
+      line-height: 13px;
+      color: $black;
+      text-align: center;
+    }
+  }
+}
+
+.navbar-toggler {
+  background: #464646;
+  border: 0 #000;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+

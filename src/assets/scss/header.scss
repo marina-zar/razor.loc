@@ -6,7 +6,7 @@ header {
   border-bottom: 1px solid $lightGray;
 
   .row {
-    padding: 17px 0 23px;
+    padding: 17px 0 17px;
 
     & > div {
       display: flex;
@@ -23,6 +23,8 @@ header {
     }
 
     .header__phone {
+      border-left: 1px solid $lightGray;
+      padding-left: 21px;
       a {
         font-size: 20px;
         display: block;
@@ -37,12 +39,41 @@ header {
 
     .logo-wrap {
       text-align: center;
+      img {
+        width: 176px;
+        height: auto;
+      }
+      .logo__sub {
+        font-size: 13px;
+        color: $Gray;
+        font-weight: 400;
+      }
     }
 
     .header__loc {
-      background: url("../img/location.png");
+      background: url("../img/loc.svg") no-repeat left center;
+      padding-left: 27px;
+      font-size: 16px;
     }
 
+    .header__search {
+      form {
+        border-bottom: 1px solid $lightGray;
+        &:hover,
+        &:active {
+          border-bottom: 1px solid $primary;
+        }
+      }
+      svg {
+        color: $primary;
+        padding-bottom: 5px;
+      }
+      input {
+        border: 0;
+        outline: none;
+        padding: 0 0 5px 10px;
+      }
+    }
   }
 }
 

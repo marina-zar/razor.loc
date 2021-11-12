@@ -1,0 +1,159 @@
+/****************************Main styles*****************************/
+.container-md {
+  position: relative;
+}
+.intro {
+  margin-top: 240px;
+  background: url("../img/intro/bg.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.slick-slider {
+  .slide-content {
+    padding-top: 150px;
+
+    &__heading {
+    }
+
+    &__title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    &__model {
+      font-size: 70px;
+      font-weight: 800;
+      margin-bottom: 87px;
+      line-height: 1;
+    }
+
+    &__price {
+      background: url("../img/Mazok.png") no-repeat left bottom;
+      background-size: 100% 100%;
+      font-family: Caveat, sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+      line-height: 0.9;
+      padding: 0 70px 30px 0;
+      //margin-left: -50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    &__img {
+      //position: absolute;
+      //top: -50px;
+      padding: 10px 0;
+
+      .img-slider {
+        margin: -180px 0 0 0;
+        height: 675px;
+        overflow: visible;
+
+        img {
+          width: auto;
+          height: 100%;
+        }
+        .scooter1 {
+          width: auto;
+          height: 95%;
+        }
+      }
+    }
+
+    &__buy {
+      p {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 65px;
+        line-height: 1.7;
+      }
+    }
+
+    .slide-content__btn {
+      font-size: 20px;
+      font-weight: 500;
+      padding: 12px 104px 12px 58px;
+      color: white;
+      background: url("../../assets/img/intro/Vector.png") no-repeat center right 25%,
+      linear-gradient(92.41deg, #E31104 0.34%, #FB4F2A 100%);
+      border-radius: 60px;
+      transition: all .4s;
+    &:hover {
+      box-shadow: 4px 4px 28px #FF8E74;
+      background: url("../../assets/img/intro/Vector.png") no-repeat center right 15%,
+      linear-gradient(92.41deg, #E31104 0.34%, #FB4F2A 100%);
+    }
+    }
+  }
+}
+
+
+/****************************Slick-carousel styles*****************************/
+.slick-slider__arrows {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 150px;
+  position: absolute;
+ bottom: 200px;
+  right: 10px;
+
+  .arrow-next {
+    margin-left: 24px;
+
+    svg {
+      transform: scale(-1, 1);
+    }
+  }
+}
+
+.arrow-in {
+  fill: #C6C6C6;
+  transition: all 0.4s
+}
+
+.slider-arrow:hover .arrow-in {
+  fill: #FD542D;
+}
+
+.circle-oran {
+  stroke: #C6C6C6;
+}
+
+.slider-arrow:hover .circle-oran {
+  fill: none;
+  stroke: #FD542D;
+  stroke-dasharray: 145;
+  stroke-dashoffset: -145;
+  animation: heart-anim 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes heart-anim {
+  5% {
+    stroke-dashoffset: -145;
+
+  }
+  70% {
+    stroke-dashoffset: 0;
+
+  }
+  87% {
+    stroke-dashoffset: 0;
+
+  }
+  100% {
+    stroke-dashoffset: 0;
+
+  }
+}
+
+.img1 {
+  height: 300px;
+  img {
+    height: 100%;
+    width: auto;
+  }
+}

@@ -1,5 +1,117 @@
 header {
   font-size: 14px;
+  background-color: white;
+  @include media-breakpoint-down(lg) {
+    height: 80px;
+  }
+}
+
+.header__mobile {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  @include media-breakpoint-down(lg) {
+    display: flex;
+  }
+  @include media-breakpoint-down(sm) {
+    height: 65px;
+  }
+}
+
+.header__burger {
+  display: none;
+  @include media-breakpoint-down(lg) {
+    display: block;
+    width: 29px;
+    height: 22px;
+    background: url("../img/burger.svg") no-repeat center;
+    background-size: 100%;
+  }
+}
+
+.basket {
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    height: 24px;
+    width: 24px;
+    margin-right: 15px;
+  }
+
+  &__count {
+    left: 35px;
+  }
+}
+
+.basket-mobile {
+  display: none;
+  @include media-breakpoint-down(lg) {
+    display: block;
+  }
+
+  svg {
+    height: 28px;
+    width: 28px;
+  }
+
+  .basket__count {
+    left: 14px;
+    top: -5px;
+  }
+}
+
+.count-label {
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  font-size: 12px;
+  line-height: 20px;
+  color: $white;
+  background: $primary;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.header__menu {
+  position: relative;
+  @include media-breakpoint-down(lg) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    padding: 0 24px;
+  }
+}
+
+.logo-wrap {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  @include media-breakpoint-down(sm) {
+    top: 18px;
+  }
+
+  img {
+    width: 176px;
+    height: auto;
+    @include media-breakpoint-down(sm) {
+      width: 127px;
+    }
+  }
+
+  .logo__sub {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
 }
 
 .header__top {
@@ -7,6 +119,9 @@ header {
 
   .row {
     padding: 17px 0 17px;
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+    }
 
     & > div {
       display: flex;
@@ -19,152 +134,292 @@ header {
         display: inline-block;
         vertical-align: middle;
         margin: 0;
+
+      }
+
+      @include media-breakpoint-down(xl) {
+        display: none;
       }
     }
 
     .header__phone {
       border-left: 1px solid $lightGray;
       padding-left: 21px;
+      @include media-breakpoint-down(lg) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
       a {
         font-size: 20px;
         display: block;
         letter-spacing: -1px;
         line-height: 1;
+        @include media-breakpoint-down(xxl) {
+          font-size: 16px;
+        }
       }
 
       span {
         font-size: 12px;
       }
+      .header__phone-sub {
+        @include media-breakpoint-down(lg) {
+          display: none;
+        }
+      }
     }
 
-    .logo-wrap {
+
+    .logo__sub {
+      font-size: 13px;
+      color: $Gray;
+      font-weight: 400;
+    }
+  }
+
+  .header__loc {
+    //background: url("../img/loc.svg") no-repeat left center;
+    //padding-left: 27px;
+    font-size: 16px;
+
+    select {
+    }
+
+    //.select2-container--default {
+    .select2-selection--single {
+      border: 0;
+    }
+
+    //}
+  }
+
+  .header__search {
+    @include media-breakpoint-down(lg) {
+      order: -1;
+    }
+    form {
+      border-bottom: 1px solid $lightGray;
+      height: 36px;
+      display: flex;
+      flex-wrap: nowrap;
+
+      &:hover,
+      &:active {
+        border-bottom: 1px solid $primary;
+      }
+
+    }
+
+    .form__img {
+      padding: 7px 5px 0;
       text-align: center;
-      img {
-        width: 176px;
-        height: auto;
-      }
-      .logo__sub {
-        font-size: 13px;
-        color: $Gray;
-        font-weight: 400;
-      }
-    }
+      min-width: 27px;
 
-    .header__loc {
-      //background: url("../img/loc.svg") no-repeat left center;
-      padding-left: 27px;
-      font-size: 16px;
-      select {
-        padding-left: 27px;
-        background: url("../img/loc.svg") no-repeat left center;
-        border-radius: 0;
-        border: 0;
-        cursor: pointer;
-        &:focus {
-          border: 0;
-          border-bottom: 1px solid $primary;
-          outline: 0;
-          box-shadow: none;
-        }
-      }
-    }
-
-    .header__search {
-      form {
-        border-bottom: 1px solid $lightGray;
-        height: 36px;
-        &:hover,
-        &:active {
-          border-bottom: 1px solid $primary;
-        }
-      }
       svg {
         color: $primary;
         padding-bottom: 6px;
         height: 20px;
-      }
-      input {
-        border: 0;
-        outline: none;
-        padding: 7px 0 5px 10px;
+
       }
     }
+
+    input {
+      border: 0;
+      outline: none;
+      padding: 7px 0 5px 10px;
+      flex: 1 1 auto;
+      min-width: 0;
+      width: 1%;
+    }
   }
+
 }
 
 .header__bottom {
   padding: 17px 0;
   font-size: 18px;
+  @include media-breakpoint-down(lg) {
+    margin: 0 -24px;
+  }
+  .row {
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+
+    }
+  }
+
   .nav {
     justify-content: space-between;
-    padding-right: 5%;
-    &-item {
+    @include media-breakpoint-down(lg){
+      flex-direction: column;
+      background: #EBF0F3;
+      padding: 0 24px;
+    }
 
-      a {
+    &-item {
+      @include media-breakpoint-down(lg) {
+        border-bottom: 1px dashed #FFFFFF;
+      }
+      .nav-link {
         color: $darkdarkGray;
         font-size: 18px;
+        transition: all .4s;
+        @include media-breakpoint-down(xl) {
+          font-size: 16px;
+        }
+        @include media-breakpoint-down(lg) {
+          padding-left: 0;
+        }
         &:hover {
           color: $primary;
+          background: url("../img/line.png") no-repeat left bottom;
+          background-size: 100% 6px;
         }
+
         &.active {
           background: url("../img/line.png") no-repeat left bottom;
           //background-size: 100%;
         }
       }
+
       .bi-grid {
         padding-bottom: 3px;
         color: $primary;
         height: 22px;
       }
     }
+
     .nav-item:first-child {
       a {
         padding-left: 0;
       }
     }
   }
+
   .bask-comp {
-    &> div {
+    display: flex;
+    justify-content: flex-end;
+    @include media-breakpoint-down(lg){
+      flex-direction: column;
+    }
+
+    & > * {
       border-left: 1px solid $lightGray;
       padding: 8px 18px;
     }
+
     .compare {
-      //padding: 8px 20px;
+      display: block;
       position: relative;
-      &__count { }
-    }
-    .basket {
-      position: relative;
-      svg {
-        height: 24px;
-        width: 24px;
-        margin-right: 15px;
-      }
-      &__count {
-        left: 35px;
-      }
-    }
-    .count-label {
-      position: absolute;
-      right: 6px;
-      top: 5px;
-      font-size: 12px;
-      line-height: 20px;
-      color: $white;
-      background: $primary;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      text-align: center;
+      cursor: pointer;
     }
   }
 }
 
+/*************Dropdown bootstrap style************/
+.btn {
+  border-radius: 0;
+  font-weight: 500;
+}
 
+.btn-check:focus + .btn, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
 
+.dropdown-toggle {
+  &:after {
+    content: none;
+  }
+}
 
+.dropdown {
+  position: static;
+}
+.dropdown-menu {
+  border-radius: 0;
+  width: 100%;
+  padding: 60px 78px;
+}
+.dropdown-item {
+  font-weight: 600;
+  font-size: 20px;
+  & > a {
+    display: block;
+    padding-bottom: 12px;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      flex: 1 1 50%;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 170%;
+    }
+  }
+}
+.catalogue__list-sub {
+  padding-left: 0;
+}
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: $white;
+}
 
+.dropdown-item:hover, .dropdown-item:focus {
+  background: $white;
+}
 
+/*************Select style************/
+.select2-container--default .select2-results > .select2-results__options {
+  height: auto;
+  //max-height: 600px;
+}
 
+.select2-dropdown {
+  border-radius: 0;
+  border: 0;
+}
+
+.select2-results {
+  border-top: 1px solid $primary;
+}
+
+.select2-results__option {
+  //padding-left: 25px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  padding-left: 25px;
+  background: url("../img/loc.svg") no-repeat left center;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  display: block;
+  //width: 8px;
+  //height: 8px;
+  //border-color: $primary;
+  border-width: 0;
+  //  border-left: 1px solid $primary;
+  //  border-top: 1px solid $primary;
+  //  transform: rotate(225deg);
+  //  padding-bottom: 5px;
+  //transition: transform .4s;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-color: $primary;
+  border-width: 0;
+  border-left: 1px solid $primary;
+  border-top: 1px solid $primary;
+  transform: rotate(45deg);
+  padding-bottom: 5px;
+}
 
 
